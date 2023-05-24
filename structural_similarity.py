@@ -1,5 +1,15 @@
 import cv2
+import requests
+import numpy as np
 from skimage.metrics import structural_similarity as ssim
+
+
+def url_to_image(url):
+    response = requests.get(url)
+    image = np.asarray(bytearray(response.content), dtype="uint8")
+    image = cv2.imdecode(image, cv2.IMREAD_COLOR)
+
+    return image
 
 
 # 컨투어 검출 함수
@@ -17,8 +27,8 @@ def detect_contours(image):
 
 def match(path1, path2):
     # read the images
-    img1 = cv2.imread(path1)
-    img2 = cv2.imread(path2)
+    img1 = url_to_image(path1)
+    img2 = url_to_image(path2)
 
     # turn images to grayscale
     img1 = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
