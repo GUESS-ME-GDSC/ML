@@ -5,13 +5,15 @@ from structural_similarity import match
 app = Flask(__name__)
 
 
-@app.post("/compare_images")
+@app.get("/compare_images")
 def compare_images():
     try:
-        # 파일 경로를 request body에서 가져오기
-        data = request.get_json()
-        file1_path = data["file1"]
-        file2_path = data["file2"]
+        file1_path = request.args.get("file1")
+        file2_path = request.args.get("file2")
+        # # 파일 경로를 request body에서 가져오기
+        # data = request.get_json()
+        # file1_path = data["file1"]
+        # file2_path = data["file2"]
 
         # TODO: 파일 경로를 이용하여 이미지 비교 작업 수행
         similarity = match(file1_path, file2_path)
