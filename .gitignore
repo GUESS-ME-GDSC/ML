@@ -13,3 +13,6 @@
 
 # Remove mac files
 .DS_Store
+
+# images
+*.png
