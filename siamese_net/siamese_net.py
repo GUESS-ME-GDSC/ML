@@ -1,6 +1,7 @@
 import torchvision.transforms as transforms
 import torch
 import torch.nn.functional as F
+import cv2
 from url_to_image import url_to_image
 from siamese_net.siameseNetwork import SiameseNetwork
 
@@ -9,8 +10,6 @@ model = SiameseNetwork().cuda()
 model.load_state_dict(torch.load("siamese_model.pt"))
 
 # read the images online
-import cv2
-
 img1 = url_to_image(
     "https://github.com/GUESS-ME-GDSC/Server/assets/65845941/64d3cf28-1665-448f-bfe8-96c1cfdc32fa"
 )
