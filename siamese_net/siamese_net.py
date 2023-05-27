@@ -8,7 +8,9 @@ from siamese_net.siameseNetwork import SiameseNetwork
 
 def checkSimilarity(path1, path2):
     # Load trained model
-    model = SiameseNetwork().cuda()
+    # model = SiameseNetwork().cuda()
+    # model.load_state_dict(torch.load("siamese_model.pt"))
+    model = SiameseNetwork()
     model.load_state_dict(torch.load("siamese_model.pt"))
 
     # read the images online
@@ -25,11 +27,6 @@ def checkSimilarity(path1, path2):
 
     img1_tensor = transforms.ToTensor()(img1)
     img2_tensor = transforms.ToTensor()(img2)
-
-    # move the tensors to the desired device
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    img1_tensor = img1_tensor.to(device)
-    img2_tensor = img2_tensor.to(device)
 
     img1_tensor = torch.unsqueeze(img1_tensor, 0)  # Add batch dimension to img1_tensor
     img2_tensor = torch.unsqueeze(img2_tensor, 0)
