@@ -7,11 +7,13 @@ from siamese_net.siameseNetwork import SiameseNetwork
 
 
 def checkSimilarity(path1, path2):
-    # Load trained model
-    # model = SiameseNetwork().cuda()
-    # model.load_state_dict(torch.load("siamese_model.pt"))
     model = SiameseNetwork()
-    model.load_state_dict(torch.load("siamese_model.pt"))
+    model.load_state_dict(
+        torch.load(
+            "/app/siamese_net/siamese_model.pt",
+            map_location=torch.device("cpu"),  # Load model and map it to CPU
+        )
+    )
 
     # read the images online
     img1 = url_to_image(path1)
