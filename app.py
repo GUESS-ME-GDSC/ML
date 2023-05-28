@@ -1,6 +1,5 @@
 from flask import Flask, jsonify, request
-
-from structural_similarity import match
+from siamese_net.siamese_net import checkSimilarity
 
 app = Flask(__name__)
 
@@ -13,7 +12,8 @@ def compare_images():
         file2_path = request.args.get("file2")
 
         # 이미지 유사도 계산
-        similarity = match(file1_path, file2_path)
+        # similarity = match(file1_path, file2_path)
+        similarity = checkSimilarity(file1_path, file2_path)
 
         # 결과를 JSON 형식으로 반환
         response = {"similarity": similarity}
