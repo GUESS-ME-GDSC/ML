@@ -9,6 +9,7 @@ RUN pip install --upgrade pip \
   && pip install --no-cache-dir -r requirements_siamese_net.txt
 COPY ./app.py .
 COPY ./siamese_net ./siamese_net
+COPY url_to_image.py .
 
 # Run with Gunicorn
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app:app"]
