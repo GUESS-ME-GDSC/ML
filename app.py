@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
-from siamese_net.siamese_net import checkSimilarity
+
+from torch_siamese_net.siamese_net import checkSimilarity
 
 app = Flask(__name__)
 

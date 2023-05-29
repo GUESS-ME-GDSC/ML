@@ -83,9 +83,12 @@ There is **Two key features** exist.
 - [Spring Security](https://spring.io/projects/spring-security)
 - [JWT](https://jwt.io/)
 
-### 😄 ML
+### 😄 ML(Image Compare Server)
 
 - [python 3.9.6](https://www.python.org/downloads/release/python-396/)
+- tensorflow
+- keras
+- torch
 
 ### 😎 Android
 
@@ -107,10 +110,46 @@ There is **Two key features** exist.
 
 <h2 id="gettingstarted"> 🏃 Getting Started </h2>
 
-You don't need to install anything to run Guessme.
-It's all deployed on the cloud.
+## Prerequisites
 
-The only thing you need is a [Android Client](https://github.com/GUESS-ME-GDSC/Android).
+You need to have the following installed on your machine to run the project successfully:
+
+- Python 3.9
+- pip
+
+## Getting Started
+
+### 1. Git Clone
+
+Clone the repository.
+
+```
+git clone https://github.com/GUESS-ME-GDSC/ML.git
+```
+
+### 2. Install Requirements
+
+Install the requirements using pip.
+
+```
+pip install -r requirements_siamese_net.txt
+```
+
+### 3. Start Application
+
+You can start the application using the following command.
+
+```
+gunicorn --bind 0.0.0.0:8000 app:app
+```
+
+### 4. Test Application
+
+You can test the application using the following command.
+
+```
+curl "http://localhost:8000/compare_images?file1=[image file on online]&file2=[image file on online]"
+```
 
 <h2 id="structure"> 🕹️ Source Code Structure </h2>
 
