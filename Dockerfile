@@ -8,7 +8,7 @@ RUN pip install --upgrade pip \
   && apt-get -y install libglib2.0-0 \
   && pip install --no-cache-dir -r requirements_siamese_net.txt
 COPY ./app.py .
-COPY ./siamese_net ./siamese_net
+COPY ./torch_siamese_net ./torch_siamese_net
 COPY url_to_image.py .
 
 # Run with Gunicorn
