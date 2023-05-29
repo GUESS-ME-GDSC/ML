@@ -135,6 +135,11 @@ Install the requirements using pip.
 pip install -r requirements_siamese_net.txt
 ```
 
+You can download trained model from [here](https://drive.google.com/drive/folders/1Y3hgAaYwLMc-uaJENOlq0WaidpjZ2Sf9?usp=sharing).
+
+Please download named `siamese_model.pt`
+than place it in `torch_siamese_net` folder.
+
 ### 3. Start Application
 
 You can start the application using the following command.
@@ -153,12 +158,27 @@ curl "http://localhost:8000/compare_images?file1=[image file on online]&file2=[i
 
 <h2 id="structure"> 🕹️ Source Code Structure </h2>
 
-### Server
+### ML Server
 
 ```
 ML/
-└─
-
+├─ .gitignore
+├─ Dockerfile
+├─ README.md
+├─ app.py
+├─ requirements.txt
+├─ requirements_siamese_net.txt
+├─ skimage
+│  ├─ Dockerfile_skimage
+│  └─ structural_similarity.py
+├─ tensorflow_siamese_net
+│  └─ kaggle_siamese.ipynb
+├─ torch_siamese_net
+│  ├─ siameseNetwork.py
+│  ├─ siameseNetworkDataset.py
+│  ├─ siamese_net.py
+│  └─ siamese_network_implement.ipynb
+└─ url_to_image.py
 ```
 
 <h2 id="teaminfo"> 👨‍👦‍👦 Team Info </h2>
