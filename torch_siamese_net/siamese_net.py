@@ -2,8 +2,9 @@ import torchvision.transforms as transforms
 import torch
 import torch.nn.functional as F
 import cv2
+
+from torch_siamese_net.siamese_net import SiameseNetwork
 from url_to_image import url_to_image
-from siamese_net.siameseNetwork import SiameseNetwork
 
 
 def checkSimilarity(path1, path2):
