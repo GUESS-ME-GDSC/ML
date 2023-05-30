@@ -3,20 +3,20 @@ import torch
 import torch.nn.functional as F
 import cv2
 
-from torch_siamese_net.siamese_net import SiameseNetwork
+from torch_siamese_net.siameseNetwork import SiameseNetwork
 from url_to_image import url_to_image
 
 """
-Check similarity between two images
+Check dissimilarity between two images
 returns a double value(disisimilarity)
 """
 
 
-def checkSimilarity(path1, path2):
+def checkDissimilarity(path1, path2):
     model = SiameseNetwork()
     model.load_state_dict(
         torch.load(
-            "/app/siamese_net/siamese_model.pt",
+            "/app/torch_siamese_net/siamese_model.pt",
             map_location=torch.device("cpu"),  # Load model and map it to CPU
         )
     )
