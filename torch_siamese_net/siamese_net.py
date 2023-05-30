@@ -6,6 +6,11 @@ import cv2
 from torch_siamese_net.siamese_net import SiameseNetwork
 from url_to_image import url_to_image
 
+"""
+Check similarity between two images
+returns a double value(disisimilarity)
+"""
+
 
 def checkSimilarity(path1, path2):
     model = SiameseNetwork()
@@ -37,4 +42,5 @@ def checkSimilarity(path1, path2):
     output1, output2 = model(img1_tensor, img2_tensor)
     euclidean_distance = F.pairwise_distance(output1, output2)
 
-    return "Dissimilarity: {:.2f}".format(euclidean_distance.item())
+    formatted_value = "{:.2f}".format(euclidean_distance.item())
+    return float(formatted_value)
