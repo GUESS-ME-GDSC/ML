@@ -65,7 +65,7 @@ There is **Two key features** exist.
  
 <h2 id="stacks"> 🛠️  Tech Stacks </h2>
 
-<img width="500" alt="Guessme_project_architecture" src="https://user-images.githubusercontent.com/65845941/229068477-4913d2c9-79f0-4f10-83e9-a0b599ddf0b0.png">
+<img width="500" alt="Guessme_project_architecture" src="https://github.com/GUESS-ME-GDSC/ML/assets/65845941/dd6845aa-1f33-4ab7-83ef-cbf33d6d877a">
 
 ### 🚉 Platform
 
