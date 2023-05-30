@@ -65,7 +65,7 @@ There is **Two key features** exist.
  
 <h2 id="stacks"> 🛠️  Tech Stacks </h2>
 
-<img width="500" alt="Guessme_project_architecture" src="https://user-images.githubusercontent.com/65845941/229068477-4913d2c9-79f0-4f10-83e9-a0b599ddf0b0.png">
+<img width="500" alt="Guessme_project_architecture" src="https://github.com/GUESS-ME-GDSC/ML/assets/65845941/dd6845aa-1f33-4ab7-83ef-cbf33d6d877a">
 
 ### 🚉 Platform
 
@@ -83,9 +83,12 @@ There is **Two key features** exist.
 - [Spring Security](https://spring.io/projects/spring-security)
 - [JWT](https://jwt.io/)
 
-### 😄 ML
+### 😄 ML(Image Compare Server)
 
 - [python 3.9.6](https://www.python.org/downloads/release/python-396/)
+- tensorflow
+- keras
+- torch
 
 ### 😎 Android
 
@@ -107,19 +110,75 @@ There is **Two key features** exist.
 
 <h2 id="gettingstarted"> 🏃 Getting Started </h2>
 
-You don't need to install anything to run Guessme.
-It's all deployed on the cloud.
+## Prerequisites
 
-The only thing you need is a [Android Client](https://github.com/GUESS-ME-GDSC/Android).
+You need to have the following installed on your machine to run the project successfully:
+
+- Python 3.9
+- pip
+
+## Getting Started
+
+### 1. Git Clone
+
+Clone the repository.
+
+```
+git clone https://github.com/GUESS-ME-GDSC/ML.git
+```
+
+### 2. Install Requirements
+
+Install the requirements using pip.
+
+```
+pip install -r requirements_siamese_net.txt
+```
+
+You can download trained model from [here](https://drive.google.com/drive/folders/1Y3hgAaYwLMc-uaJENOlq0WaidpjZ2Sf9?usp=sharing).
+
+Please download named `siamese_model.pt`
+than place it in `torch_siamese_net` folder.
+
+### 3. Start Application
+
+You can start the application using the following command.
+
+```
+gunicorn --bind 0.0.0.0:8000 app:app
+```
+
+### 4. Test Application
+
+You can test the application using the following command.
+
+```
+curl "http://localhost:8000/compare_images?file1=[image file on online]&file2=[image file on online]"
+```
 
 <h2 id="structure"> 🕹️ Source Code Structure </h2>
 
-### Server
+### ML Server
 
 ```
 ML/
-└─
-
+├─ .gitignore
+├─ Dockerfile
+├─ README.md
+├─ app.py
+├─ requirements.txt
+├─ requirements_siamese_net.txt
+├─ skimage
+│  ├─ Dockerfile_skimage
+│  └─ structural_similarity.py
+├─ tensorflow_siamese_net
+│  └─ kaggle_siamese.ipynb
+├─ torch_siamese_net
+│  ├─ siameseNetwork.py
+│  ├─ siameseNetworkDataset.py
+│  ├─ siamese_net.py
+│  └─ siamese_network_implement.ipynb
+└─ url_to_image.py
 ```
 
 <h2 id="teaminfo"> 👨‍👦‍👦 Team Info </h2>

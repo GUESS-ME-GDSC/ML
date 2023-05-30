@@ -1,15 +1,7 @@
 import cv2
-import requests
-import numpy as np
 from skimage.metrics import structural_similarity as ssim
 
-
-def url_to_image(url):
-    response = requests.get(url)
-    image = np.asarray(bytearray(response.content), dtype="uint8")
-    image = cv2.imdecode(image, cv2.IMREAD_COLOR)
-
-    return image
+from url_to_image import url_to_image
 
 
 # 컨투어 검출 함수

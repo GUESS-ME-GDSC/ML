@@ -16,3 +16,7 @@
 
 # images
 *.png
+
+# model
+*.pt
+*.h5
